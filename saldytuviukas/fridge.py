@@ -1,10 +1,18 @@
 from .product import Product
 from .recipe import Recipe
+import json
+
 
 class Fridge:
     def __init__(self):
-        self.contents = []
+        with open("fridge.json", "r", encoding="utf-8") as saldytuve_file:
+            self.contents = json.load(saldytuve_file)
 
+    def save_fridge(self):
+        
+        for product in self.contents:
+            
+        
     def check_product(self, product_name:str) -> (int, Product):
         for product_id, product in enumerate(self.contents):
             if product.name.lower() == product_name.lower():
